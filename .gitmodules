@@ -1,0 +1,4 @@
+[submodule "modules/tracktion_engine"]
+	path = modules/tracktion_engine
+url=https://github.com/thomas-dumonet/tracktion_engine.git
+	branch = master
