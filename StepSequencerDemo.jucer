@@ -2,7 +2,7 @@
 
 <JUCERPROJECT name="StepSequencerDemo" companyName="Tracktion" version="0.0.1"
               userNotes="This example shows how to build a step squencer and associated UI."
-              companyWebsite="www.tracktion.com" defines="" projectType="guiapp"
+              companyWebsite="www.tracktion.com" defines="" projectType="consoleapp"
               id="fapbW8" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="hzZoto" name="StepSequencerDemo">
     <GROUP id="{08559C0F-B318-827D-EDF6-19B903DB5FA5}" name="Source">

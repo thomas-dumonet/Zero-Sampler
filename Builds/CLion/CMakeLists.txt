@@ -22,7 +22,7 @@ pkg_search_module (LIBCURL REQUIRED libcurl)
 pkg_search_module (WEBKIT2GTK-4.0 REQUIRED webkit2gtk-4.0)
 pkg_search_module (GTK+-X11-3.0 REQUIRED gtk+-x11-3.0)
 
-add_executable (APP
+add_executable (CONSOLEAPP
     "../../Source/Main.cpp"
     "../../Source/StepSequencerDemo.h"
     "../../tracktion_engine/modules/juce/modules/juce_audio_basics/audio_play_head/juce_AudioPlayHead.h"
@@ -5078,7 +5078,7 @@ set_source_files_properties ("../../tracktion_engine/modules/tracktion_engine/tr
 set_source_files_properties ("../../JuceLibraryCode/AppConfig.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 set_source_files_properties ("../../JuceLibraryCode/JuceHeader.h" PROPERTIES HEADER_FILE_ONLY TRUE)
 
-set_target_properties (APP PROPERTIES SUFFIX "")
+set_target_properties (CONSOLEAPP PROPERTIES SUFFIX "")
 
 #------------------------------------------------------------------------------
 # Config: Debug
@@ -5108,13 +5108,13 @@ find_library (DL dl
 find_library (PTHREAD pthread
 )
 
-set_target_properties (APP PROPERTIES
+set_target_properties (CONSOLEAPP PROPERTIES
     OUTPUT_NAME "StepSequencerDemo"
     CXX_STANDARD 14
     CXX_EXTENSIONS OFF
 )
 
-target_compile_definitions (APP PRIVATE
+target_compile_definitions (CONSOLEAPP PRIVATE
     LINUX=1
     DEBUG=1
     _DEBUG=1
@@ -5131,7 +5131,7 @@ target_compile_definitions (APP PRIVATE
     JucePlugin_Build_Unity=0
 )
 
-target_link_libraries (APP PRIVATE
+target_link_libraries (CONSOLEAPP PRIVATE
     
     -fvisibility=hidden
     ${RT}
@@ -5175,13 +5175,13 @@ find_library (DL dl
 find_library (PTHREAD pthread
 )
 
-set_target_properties (APP PROPERTIES
+set_target_properties (CONSOLEAPP PROPERTIES
     OUTPUT_NAME "StepSequencerDemo"
     CXX_STANDARD 14
     CXX_EXTENSIONS OFF
 )
 
-target_compile_definitions (APP PRIVATE
+target_compile_definitions (CONSOLEAPP PRIVATE
     LINUX=1
     NDEBUG=1
     JUCER_LINUX_MAKE_6D53C8B4=1
@@ -5197,7 +5197,7 @@ target_compile_definitions (APP PRIVATE
     JucePlugin_Build_Unity=0
 )
 
-target_link_libraries (APP PRIVATE
+target_link_libraries (CONSOLEAPP PRIVATE
     
     -fvisibility=hidden
     ${RT}
