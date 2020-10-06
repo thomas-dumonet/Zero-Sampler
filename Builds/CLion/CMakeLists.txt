@@ -5132,7 +5132,7 @@ target_compile_definitions (CONSOLEAPP PRIVATE
 )
 
 target_link_libraries (CONSOLEAPP PRIVATE
-    
+    -march=native
     -fvisibility=hidden
     ${RT}
     ${DL}
@@ -5142,7 +5142,7 @@ target_link_libraries (CONSOLEAPP PRIVATE
     ${LIBCURL_LIBRARIES}
 )
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -pthread -g -ggdb -O0")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native -pthread -g -ggdb -O0")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_C_FLAGS} ")
 
 endif (CMAKE_BUILD_TYPE STREQUAL Debug)
@@ -5198,7 +5198,7 @@ target_compile_definitions (CONSOLEAPP PRIVATE
 )
 
 target_link_libraries (CONSOLEAPP PRIVATE
-    
+    -march=native
     -fvisibility=hidden
     ${RT}
     ${DL}
@@ -5208,7 +5208,7 @@ target_link_libraries (CONSOLEAPP PRIVATE
     ${LIBCURL_LIBRARIES}
 )
 
-set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -pthread -O3")
+set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -march=native -pthread -O3")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_C_FLAGS} ")
 
 endif (CMAKE_BUILD_TYPE STREQUAL Release)

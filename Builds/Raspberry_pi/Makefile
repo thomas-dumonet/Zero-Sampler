@@ -20,22 +20,22 @@ ifndef AR
 endif
 
 ifndef CONFIG
-  CONFIG=Debug
+  CONFIG=Debug_PI
 endif
 
 JUCE_ARCH_LABEL := $(shell uname -m)
 
-ifeq ($(CONFIG),Debug)
+ifeq ($(CONFIG),Debug_PI)
   JUCE_BINDIR := build
   JUCE_LIBDIR := build
-  JUCE_OBJDIR := build/intermediate/Debug
+  JUCE_OBJDIR := build/intermediate/Debug_PI
   JUCE_OUTDIR := build
 
   ifeq ($(TARGET_ARCH),)
-    TARGET_ARCH := -march=native
+    TARGET_ARCH := -march=armv6
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=0.0.1" "-DJUCE_APP_VERSION_HEX=0x1" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules/juce/modules -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCER_LINUX_MAKE_5EC17E98=1" "-DJUCE_APP_VERSION=0.0.1" "-DJUCE_APP_VERSION_HEX=0x1" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules/juce/modules -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules $(CPPFLAGS)
   JUCE_CPPFLAGS_CONSOLEAPP :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
   JUCE_TARGET_CONSOLEAPP := StepSequencerDemo
 
@@ -46,17 +46,17 @@ ifeq ($(CONFIG),Debug)
   CLEANCMD = rm -rf $(JUCE_OUTDIR)/$(TARGET) $(JUCE_OBJDIR)
 endif
 
-ifeq ($(CONFIG),Release)
+ifeq ($(CONFIG),Release_PI)
   JUCE_BINDIR := build
   JUCE_LIBDIR := build
-  JUCE_OBJDIR := build/intermediate/Release
+  JUCE_OBJDIR := build/intermediate/Release_PI
   JUCE_OUTDIR := build
 
   ifeq ($(TARGET_ARCH),)
-    TARGET_ARCH := -march=native
+    TARGET_ARCH := -march=armv6
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=0.0.1" "-DJUCE_APP_VERSION_HEX=0x1" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules/juce/modules -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCER_LINUX_MAKE_5EC17E98=1" "-DJUCE_APP_VERSION=0.0.1" "-DJUCE_APP_VERSION_HEX=0x1" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules/juce/modules -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules $(CPPFLAGS)
   JUCE_CPPFLAGS_CONSOLEAPP :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
   JUCE_TARGET_CONSOLEAPP := StepSequencerDemo
 

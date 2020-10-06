@@ -30,8 +30,10 @@
   <EXPORTFORMATS>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StepSequencerDemo"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="StepSequencerDemo"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StepSequencerDemo"
+                       linuxArchitecture="-march=native"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="StepSequencerDemo"
+                       linuxArchitecture="-march=native"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path=""/>
