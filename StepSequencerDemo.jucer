@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT name="StepSequencerDemo" companyName="Tracktion" version="0.0.1"
-              userNotes="This example shows how to build a step squencer and associated UI."
+<JUCERPROJECT name="Zero-Sampler" companyName="Tracktion" version="0.0.1" userNotes="This example shows how to build a step squencer and associated UI."
               companyWebsite="www.tracktion.com" defines="" projectType="consoleapp"
               id="fapbW8" displaySplashScreen="1" jucerFormatVersion="1">
-  <MAINGROUP id="hzZoto" name="StepSequencerDemo">
+  <MAINGROUP id="hzZoto" name="Zero-Sampler">
     <GROUP id="{08559C0F-B318-827D-EDF6-19B903DB5FA5}" name="Source">
       <FILE id="NCMlGz" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
@@ -28,11 +27,11 @@
     <MODULE id="tracktion_engine" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <EXPORTFORMATS>
-    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraCompilerFlags="-march=armv6 -mfloat-abi=hard -mfpu=vfp">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="StepSequencerDemo"
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Zero-Sampler"
                        linuxArchitecture="-march=native"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="StepSequencerDemo"
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Zero-Sampler"
                        linuxArchitecture="-march=native"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

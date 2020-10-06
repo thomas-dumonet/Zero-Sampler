@@ -37,9 +37,9 @@ ifeq ($(CONFIG),Debug)
 
   JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=0.0.1" "-DJUCE_APP_VERSION_HEX=0x1" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules/juce/modules -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules $(CPPFLAGS)
   JUCE_CPPFLAGS_CONSOLEAPP :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
-  JUCE_TARGET_CONSOLEAPP := StepSequencerDemo
+  JUCE_TARGET_CONSOLEAPP := Zero-Sampler
 
-  JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 $(CFLAGS)
+  JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O0 -march=armv6 -mfloat-abi=hard -mfpu=vfp $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=c++14 $(CXXFLAGS)
   JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread $(LDFLAGS)
 
@@ -58,9 +58,9 @@ ifeq ($(CONFIG),Release)
 
   JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=0.0.1" "-DJUCE_APP_VERSION_HEX=0x1" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I../../JuceLibraryCode -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules/juce/modules -I/home/thomas/Projets/StepSequencer/StepSequencerDemo/tracktion_engine/modules $(CPPFLAGS)
   JUCE_CPPFLAGS_CONSOLEAPP :=  "-DJucePlugin_Build_VST=0" "-DJucePlugin_Build_VST3=0" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=0" "-DJucePlugin_Build_Unity=0"
-  JUCE_TARGET_CONSOLEAPP := StepSequencerDemo
+  JUCE_TARGET_CONSOLEAPP := Zero-Sampler
 
-  JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -O3 $(CFLAGS)
+  JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -O3 -march=armv6 -mfloat-abi=hard -mfpu=vfp $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=c++14 $(CXXFLAGS)
   JUCE_LDFLAGS += $(TARGET_ARCH) -L$(JUCE_BINDIR) -L$(JUCE_LIBDIR) $(shell pkg-config --libs alsa freetype2 libcurl) -fvisibility=hidden -lrt -ldl -lpthread $(LDFLAGS)
 
@@ -98,7 +98,7 @@ all : $(JUCE_OUTDIR)/$(JUCE_TARGET_CONSOLEAPP)
 $(JUCE_OUTDIR)/$(JUCE_TARGET_CONSOLEAPP) : $(OBJECTS_CONSOLEAPP) $(RESOURCES)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
 	@pkg-config --print-errors alsa freetype2 libcurl
-	@echo Linking "StepSequencerDemo - ConsoleApp"
+	@echo Linking "Zero-Sampler - ConsoleApp"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
@@ -215,11 +215,11 @@ $(JUCE_OBJDIR)/include_tracktion_engine_utils_d9fbe4b4.o: ../../JuceLibraryCode/
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_CONSOLEAPP) $(JUCE_CFLAGS_CONSOLEAPP) -o "$@" -c "$<"
 
 clean:
-	@echo Cleaning StepSequencerDemo
+	@echo Cleaning Zero-Sampler
 	$(V_AT)$(CLEANCMD)
 
 strip:
-	@echo Stripping StepSequencerDemo
+	@echo Stripping Zero-Sampler
 	-$(V_AT)$(STRIP) --strip-unneeded $(JUCE_OUTDIR)/$(TARGET)
 
 -include $(OBJECTS_CONSOLEAPP:%.o=%.d)
