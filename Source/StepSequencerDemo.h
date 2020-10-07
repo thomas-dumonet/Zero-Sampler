@@ -52,33 +52,14 @@ namespace
 }
 
 //==============================================================================
-class StepSequencerDemo :
+class StepSequencerDemo
 {
 public:
     //==============================================================================
     StepSequencerDemo()
     {
-        transport.addChangeListener (this);
-
         createStepClip();
         createSamplerPlugin (createSampleFiles());
-
-        stepEditor = std::make_unique<StepEditor> (*getClip());
-        Helpers::addAndMakeVisible (*this, { &settingsButton, &playPauseButton, &randomiseButton,
-                                             &clearButton, &tempoSlider, stepEditor.get() });
-
-        updatePlayButtonText();
-
-        settingsButton.onClick  = [this] { EngineHelpers::showAudioDeviceSettings (engine); };
-        playPauseButton.onClick = [this] { EngineHelpers::togglePlay (edit); };
-        randomiseButton.onClick = [this] { getClip()->getPattern (0).randomiseSteps(); };
-        clearButton.onClick     = [this] { getClip()->getPattern (0).clear(); };
-
-        tempoSlider.setRange (30.0, 220.0, 0.1);
-        tempoSlider.setValue (edit.tempoSequence.getTempos()[0]->getBpm(), dontSendNotification);
-        tempoSlider.addListener (this);
-
-        setSize (600, 400);
     }
 
     ~StepSequencerDemo()
@@ -87,52 +68,11 @@ public:
         engine.getTemporaryFileManager().getTempDirectory().deleteRecursively();
     }
 
-    //==============================================================================
-    void sliderValueChanged (Slider*) override
-    {        
-        if (! ModifierKeys::getCurrentModifiers().isAnyMouseButtonDown())
-            edit.tempoSequence.getTempos()[0]->setBpm (tempoSlider.getValue());
-    }
-
-    void sliderDragEnded (Slider*) override
-    {
-        edit.tempoSequence.getTempos()[0]->setBpm (tempoSlider.getValue());
-    }
-
-    void paint (Graphics& g) override
-    {
-        g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
-    }
-
-    void resized() override
-    {
-        auto r = getLocalBounds();
-
-        {
-            auto topR = r.removeFromTop (30);
-            settingsButton.setBounds (topR.removeFromLeft (topR.getWidth() / 3).reduced (2));
-            playPauseButton.setBounds (topR.removeFromLeft (topR.getWidth() / 2).reduced (2));
-            randomiseButton.setBounds (topR.removeFromLeft (topR.getWidth() / 2).reduced (2));
-            clearButton.setBounds (topR.reduced (2));
-        }
-
-        {
-            auto bottomR = r.removeFromBottom (60);
-            tempoSlider.setBounds (bottomR.reduced (2));
-        }
-
-        stepEditor->setBounds (r);
-    }
-
 private:
     //==============================================================================
     te::Engine engine { ProjectInfo::projectName };
     te::Edit edit { engine, te::createEmptyEdit (engine), te::Edit::forEditing, nullptr, 0 };
     te::TransportControl& transport { edit.getTransport() };
-
-    TextButton settingsButton { "Settings" }, playPauseButton { "Play" }, randomiseButton { "Randomise" }, clearButton { "Clear" };
-    Slider tempoSlider;
-    std::unique_ptr<StepEditor> stepEditor;
 
     //==============================================================================
     te::StepClip::Ptr createStepClip()
