@@ -267,15 +267,15 @@
 #endif
 
 #ifndef    JUCE_USE_XRANDR
- //#define JUCE_USE_XRANDR 1
+ #define   JUCE_USE_XRANDR 0
 #endif
 
 #ifndef    JUCE_USE_XINERAMA
- //#define JUCE_USE_XINERAMA 1
+ #define   JUCE_USE_XINERAMA 0
 #endif
 
 #ifndef    JUCE_USE_XSHM
- //#define JUCE_USE_XSHM 1
+ #define   JUCE_USE_XSHM 0
 #endif
 
 #ifndef    JUCE_USE_XRENDER
@@ -283,7 +283,7 @@
 #endif
 
 #ifndef    JUCE_USE_XCURSOR
- //#define JUCE_USE_XCURSOR 1
+ #define   JUCE_USE_XCURSOR 0
 #endif
 
 #ifndef    JUCE_WIN_PER_MONITOR_DPI_AWARE
@@ -294,7 +294,7 @@
 // juce_gui_extra flags:
 
 #ifndef    JUCE_WEB_BROWSER
- //#define JUCE_WEB_BROWSER 1
+ #define   JUCE_WEB_BROWSER 0
 #endif
 
 #ifndef    JUCE_USE_WIN_WEBVIEW2

@@ -11,20 +11,20 @@
           file="Source/StepSequencerDemo.h" xcodeResource="0"/>
   </MAINGROUP>
   <MODULES>
-    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
-    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="tracktion_engine" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="tracktion_engine" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <EXPORTFORMATS>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraCompilerFlags="-march=armv6 -mfloat-abi=hard -mfpu=vfp">
@@ -35,20 +35,20 @@
                        linuxArchitecture="-march=native"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_audio_basics" path=""/>
-        <MODULEPATH id="juce_audio_devices" path=""/>
-        <MODULEPATH id="juce_audio_formats" path=""/>
-        <MODULEPATH id="juce_audio_processors" path=""/>
-        <MODULEPATH id="juce_audio_utils" path=""/>
-        <MODULEPATH id="juce_core" path=""/>
-        <MODULEPATH id="juce_data_structures" path=""/>
-        <MODULEPATH id="juce_dsp" path=""/>
-        <MODULEPATH id="juce_events" path=""/>
-        <MODULEPATH id="juce_graphics" path=""/>
-        <MODULEPATH id="juce_gui_basics" path=""/>
-        <MODULEPATH id="juce_gui_extra" path=""/>
-        <MODULEPATH id="juce_osc" path=""/>
-        <MODULEPATH id="tracktion_engine" path=""/>
+        <MODULEPATH id="juce_audio_basics" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_core" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_events" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="juce_osc" path="tracktion_engine/modules/juce/modules"/>
+        <MODULEPATH id="tracktion_engine" path="tracktion_engine/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <CLION targetFolder="Builds/CLion" clionMakefileEnabled="1">
@@ -70,7 +70,9 @@
       </MODULEPATHS>
     </CLION>
   </EXPORTFORMATS>
-  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_PLUGINHOST_AU="1"/>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_PLUGINHOST_AU="1" JUCE_WEB_BROWSER="0"
+               JUCE_USE_XCURSOR="0" JUCE_USE_XRANDR="0" JUCE_USE_XINERAMA="0"
+               JUCE_USE_XSHM="0"/>
   <LIVE_SETTINGS>
     <LINUX buildEnabled="1"/>
   </LIVE_SETTINGS>
