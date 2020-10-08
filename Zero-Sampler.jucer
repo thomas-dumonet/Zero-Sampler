@@ -27,7 +27,8 @@
     <MODULE id="tracktion_engine" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
   </MODULES>
   <EXPORTFORMATS>
-    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraCompilerFlags="-march=armv6 -mfloat-abi=hard -mfpu=vfp">
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraCompilerFlags="-march=armv6 -mfloat-abi=hard -mfpu=vfp"
+                extraLinkerFlags="-latomic">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Zero-Sampler"
                        linuxArchitecture="-march=native"/>

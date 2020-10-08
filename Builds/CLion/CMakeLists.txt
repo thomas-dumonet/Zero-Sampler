@@ -5130,6 +5130,7 @@ target_compile_definitions (CONSOLEAPP PRIVATE
 target_link_libraries (CONSOLEAPP PRIVATE
     -march=native
     -fvisibility=hidden
+    -latomic
     ${RT}
     ${DL}
     ${PTHREAD}
@@ -5194,6 +5195,7 @@ target_compile_definitions (CONSOLEAPP PRIVATE
 target_link_libraries (CONSOLEAPP PRIVATE
     -march=native
     -fvisibility=hidden
+    -latomic
     ${RT}
     ${DL}
     ${PTHREAD}
