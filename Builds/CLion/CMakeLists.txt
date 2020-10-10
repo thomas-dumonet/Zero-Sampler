@@ -5088,8 +5088,8 @@ execute_process (COMMAND uname -m OUTPUT_VARIABLE JUCE_ARCH_LABEL OUTPUT_STRIP_T
 
 include_directories (
     "../../JuceLibraryCode"
-    "/home/thomas/Zero-Sampler/tracktion_engine/modules/juce/modules"
-    "/home/thomas/Zero-Sampler/tracktion_engine/modules"
+    "../../tracktion_engine/modules/juce/modules"
+    "../../tracktion_engine/modules"
     ${ALSA_INCLUDE_DIRS}
     ${FREETYPE2_INCLUDE_DIRS}
     ${LIBCURL_INCLUDE_DIRS}
@@ -5154,8 +5154,8 @@ execute_process (COMMAND uname -m OUTPUT_VARIABLE JUCE_ARCH_LABEL OUTPUT_STRIP_T
 
 include_directories (
     "../../JuceLibraryCode"
-    "/home/thomas/Zero-Sampler/tracktion_engine/modules/juce/modules"
-    "/home/thomas/Zero-Sampler/tracktion_engine/modules"
+    "../../tracktion_engine/modules/juce/modules"
+    "../../tracktion_engine/modules"
     ${ALSA_INCLUDE_DIRS}
     ${FREETYPE2_INCLUDE_DIRS}
     ${LIBCURL_INCLUDE_DIRS}
